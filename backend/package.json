@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-react-views": "^0.11.0",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.22",
+    "photo-editor": "^0.2.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "milestone_2",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
