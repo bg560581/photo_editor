@@ -4,7 +4,7 @@ const Photo = require('../models/photos.js')
 router.get('/', async (req, res) => {
     try {
       const photos = await Photo.find({});
-      const imageUrl = photos[0].image;
+      const imageUrl = photos.image;
       const response = {
         imageUrl: imageUrl,
         photos: photos
