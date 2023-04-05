@@ -13,7 +13,8 @@
     "nodemon": "^2.0.22",
     "photo-editor": "^0.2.1",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^6.10.0"
   },
   "scripts": {
     "start": "node server.js"
