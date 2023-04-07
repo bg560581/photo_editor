@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./components/Home.js";
+import Photos from "./components/Photos.js";
 
 function App() {
  
@@ -7,12 +7,8 @@ function App() {
     <div>
       
       <h1>Library</h1>
-      <ul>
-      <li>
-        <Home />
-        </li>
-      </ul>
-    </div>
+      <Photos />
+      </div>
   );
 }
 

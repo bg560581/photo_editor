@@ -14,7 +14,9 @@
     "photo-editor": "^0.2.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "sweetalert2": "^11.7.3",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "node server.js"

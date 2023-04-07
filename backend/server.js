@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const app = express()
 mongoose.connect(process.env.MONGO_URI).then(() => console.log("Mongoose connected", process.env.MONGO_URI))
 const cors = require('cors');
+// const { default: Photos } = require('../front_end/src/components/Photos')
 
 
 //middleware

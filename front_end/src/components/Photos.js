@@ -1,10 +1,11 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Show from "./components/Show.js";
+import Show from "./Show";
+import Create from "./Create";
 
-export default function Home() {
+export default function Photos() {
   const [photos, setPhotos] = useState([]);
-  useEffect(() => {
+    useEffect(() => {
     axios
       .get("http://localhost:3003/photos")
       .then((response) => {
@@ -15,17 +16,15 @@ export default function Home() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
-  return (
+  }, [])
+  return(
     <div>
-      
-      <h1>Library</h1>
-      <ul>
-        <li>{photos.map((photo) => (
-          <Show photo={photo} />
-        ))}
-        </li>
-      </ul>
+        {photos.map((photo) => (
+            <Show photo={photo} />
+            ))}
+            <Create />
+        
     </div>
-  );
+  )
+
 }
