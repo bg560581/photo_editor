@@ -4,7 +4,7 @@ import Photos from "./components/Photos.js";
 function App() {
  
   return (
-    <div>
+    <div className="container mb-4">
       
       <h1>Library</h1>
       <Photos />

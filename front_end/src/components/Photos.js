@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import Show from "./Show";
 import Create from "./Create";
+import Build from "./Build";
+import Button from "./Button"
 
 export default function Photos() {
   const [photos, setPhotos] = useState([]);
@@ -18,13 +20,15 @@ export default function Photos() {
       });
   }, [])
   return(
-    <div>
-        {photos.map((photo) => (
-            <Show photo={photo} />
-            ))}
+    <fragment>
+        {photos.map((photo) => {
+            return (
+                <Show photo={photo}/> 
+                )
+            })}
             <Create />
-        
-    </div>
+            {/* <Build /> */}
+    </fragment>
   )
 
 }
