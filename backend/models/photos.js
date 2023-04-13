@@ -8,8 +8,7 @@ const photoSchema = new mongoose.Schema({
     photo: { 
         // type: String,
         data:Buffer,
-        contentType:String
-
+        contentType:String,
     // photoUrl: { type: String, 
         // required: true 
     }

@@ -1,4 +1,3 @@
-// const { response } = require('express');
 const express = require("express");
 const { Router } = require("express");
 const router = Router();
@@ -12,18 +11,21 @@ const path = require("path");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, `./uploads/`);
+    cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
-    cb(null, path.extname(file.originalName)
+    cb(null, file.originalname
       // `${uudiv4()}_${path.extname(file.originalname)}`
       )
-      console.log(filename)
+      // console.log(filename)
       ;
   },
 });
 
-const upload = multer({ storage: storage });
+// const upload = multer({
+//     // dest: Photo
+//   storage: storage
+//  });
 
 router.get("/", async (req, res) => {
   try {
@@ -35,33 +37,68 @@ router.get("/", async (req, res) => {
     };
     res.send(response);
   } catch (error) {
-    // console.log(error);
     res.status(500).send("Server Error");
   }
 });
 
-router.post("/", upload.single("textImage"), (req, res) => {
+
+const upload = multer({ dest: 'uploads/' });
+
+// router.post("/", upload.single("file"), (req, res) => {
+//   const filename = req.body.filename;
+//   const filePath = req.file.path;
+
+//   console.log(upload)
+//   try {
+//     // console.log("file: ", req.file)
+//     console.log("body: ", req.body.file)
+//     const file = new Photo({
+//       name: req.file.name,
+//       photo: {
+//         data: fs.readFileSync(filePath),
+//         contentType: "image/jpg",
+//       },
+//     });
+//     file
+//       .save()
+//       .then((res) => {
+//         console.log("image is saved");
+//       })
+//       .catch((err) => {
+//         console.log(err, "error");
+//       });
+//     } catch (err) {
+//       console.log(err);
+//     }
+//     return res.send("image is saved");
+// });
+
+router.post("/", upload.single("file"), (req, res) => {
+  const filename = req.body.filename;
+  const filePath = req.file.path;
+
   console.log(upload)
   try {
-    const saveImage = new Photo({
+    console.log(req.body.name)
+    const file = new Photo({
       name: req.body.name,
       photo: {
-        data: fs.readFileSync("uploads/" + req.file.filname),
+        data: fs.readFileSync(filePath),
         contentType: "image/jpg",
       },
     });
-    saveImage
+    file
       .save()
       .then((res) => {
         console.log("image is saved");
-        return res.send("image is saved");
       })
       .catch((err) => {
         console.log(err, "error");
       });
-  } catch (err) {
-    console.log(err);
-  }
+    } catch (err) {
+      console.log(err);
+    }
+    return res.send("image is saved");
 });
 
 
@@ -84,12 +121,6 @@ router.put("/:id", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
-// router.delete('/delete/:id', async (req,res) => {
-//   const id = req.params.id
-// })
-// console.log(router.put)
-
 router.delete('/:id', async (req, res) => {
   try {
     const photo = await Photo.findById(req.params.id);
@@ -104,5 +135,12 @@ router.delete('/:id', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+
+
+
+
+
+
 
 module.exports = router;
