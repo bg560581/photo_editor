@@ -41,6 +41,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get('/:id', (req,res) => {
+  Photo.findById(req.params.id)
+  .then(foundPhoto => {
+    res.json(foundPhoto);
+  })
+  .catch(err => {
+    res.status(404).json({ error: 'Photo not found' });
+  });
+});
 
 const upload = multer({ dest: 'uploads/' });
 
