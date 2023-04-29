@@ -46,6 +46,7 @@ router.get('/:id', (req,res) => {
   .then(foundPhoto => {
     res.json(foundPhoto);
   })
+  console.log(foundPhoto)
   .catch(err => {
     res.status(404).json({ error: 'Photo not found' });
   });

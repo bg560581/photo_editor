@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import Show from "./Show";
-import Create from "./Create";
-import Build from "./Build";
-import Button from "./Button"
+import Edit from "./Edit"
+import Make from "./Make"
+import "./photo.css"
+
 
 export default function Photos() {
   const [photos, setPhotos] = useState([]);
@@ -26,8 +27,7 @@ export default function Photos() {
                 <Show photo={photo}/> 
                 )
             })}
-            <Create />
-            {/* <Build /> */}
+            <Make />
     </fragment>
   )
 
