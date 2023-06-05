@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./photo.css"
+// import "./photo.css"
 
 import Edit from "./Edit";
 import Photos from "./Photos";
 import Delete from "./Delete";
-import Make from "./Make";
+import "./styles/css/style.css"
+
 
 function Show({photo}) {
     const [updateName, setUpdateName] = useState(false);

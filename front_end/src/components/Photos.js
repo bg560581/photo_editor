@@ -1,9 +1,10 @@
+
+
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import Show from "./Show";
-import Edit from "./Edit"
 import Make from "./Make"
-import "./photo.css"
+import "./styles/css/style.css"
 
 
 export default function Photos() {

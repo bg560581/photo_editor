@@ -1,0 +1,41 @@
+@import "utilities";
+@import "config";
+@import "btnConfig";
+
+body {
+    background-color: blanchedalmond;
+    font-family: $font-main;
+}
+h1 {
+    text-align: center;
+}
+
+a {
+    color: black;
+    font-family: $font-main;
+    font-size: 25px;
+
+    &:hover{
+        color: midnightblue;
+        padding: 25px;
+        font-size: 30px;
+        margin-top: 15px;
+    }
+}
+
+#image {
+    // margin-left: "auto";
+    // margin-right: "auto";
+    width:centeredItem();
+    display: "block";
+} 
+
+.name-edit {
+    margin: 7%;
+    background:$light-color;
+}
+
+hr {
+    border: 5px solid green;
+    border-radius: 3px;
+}

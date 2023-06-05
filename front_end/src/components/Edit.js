@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import "./photo.css"
+import "./styles/css/style.css"
 
 
 const Edit = ({ id, setUpdateName }) => {
@@ -45,63 +45,6 @@ const Edit = ({ id, setUpdateName }) => {
               display: "block",
               marginTop:'7px'
             }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             
           />
           <button 

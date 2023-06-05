@@ -1,0 +1,57 @@
+@import "utilities";
+@import "config";
+
+
+%btn {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 3px;
+
+  &:hover {
+    transform: scale(.80);
+  }
+}
+
+button {
+  color: #fff;
+  background-color: #3e8e41;
+  box-shadow: 0 5px #999;
+  transform: translateY(4px);
+  padding: 10px 2px;
+  border: none;
+  font-size: 24px;
+  border-radius: 15px;
+  
+  
+  &:hover {
+      padding: 15px 25px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: #fff;
+      background-color: #04AA6D;
+      box-shadow: 0 9px #666;
+      font-size: 24px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      border: none;
+  }
+  
+  &:active {
+      
+      background-color: #134915
+  }
+  
+}
+
+
+.btn-primary {
+  @extend %btn;
+  @include set-bg(lighten($primary-color, 10%));
+}
+
+.btn-secondary {
+  @extend %btn;
+  @include set-bg($secondary-color);
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import axios from 'axios'
-import "./photo.css"
+import "./styles/css/style.css"
 
 
 export default function Delete({ id }) {

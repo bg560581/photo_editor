@@ -21,95 +21,22 @@ const storage = multer.diskStorage({
       ;
   },
 });
-
-// const upload = multer({
-//     // dest: Photo
-//   storage: storage
-//  });
-
-router.get("/", async (req, res) => {
-  try {
-    const photos = await Photo.find({});
-    const imageUrls = photos.map((photo) => photo.photo);
-    const response = {
-      imageUrls: imageUrls,
-      photos: photos,
-    };
-    res.send(response);
-  } catch (error) {
-    res.status(500).send("Server Error");
-  }
-});
-
-router.get('/:id', (req,res) => {
-  Photo.findById(req.params.id)
-  .then(foundPhoto => {
-    res.json(foundPhoto);
-  })
-  console.log(foundPhoto)
-  .catch(err => {
-    res.status(404).json({ error: 'Photo not found' });
-  });
-});
-
 const upload = multer({ dest: 'uploads/' });
+const db = require("../models")
 
-// router.post("/", upload.single("file"), (req, res) => {
-//   const filename = req.body.filename;
-//   const filePath = req.file.path;
-
-//   console.log(upload)
-//   try {
-//     // console.log("file: ", req.file)
-//     console.log("body: ", req.body.file)
-//     const file = new Photo({
-//       name: req.file.name,
-//       photo: {
-//         data: fs.readFileSync(filePath),
-//         contentType: "image/jpg",
-//       },
-//     });
-//     file
-//       .save()
-//       .then((res) => {
-//         console.log("image is saved");
-//       })
-//       .catch((err) => {
-//         console.log(err, "error");
-//       });
-//     } catch (err) {
-//       console.log(err);
-//     }
-//     return res.send("image is saved");
-// });
-
-router.post("/", upload.single("file"), (req, res) => {
-  const filename = req.body.filename;
-  const filePath = req.file.path;
-
-  console.log(upload)
-  try {
-    console.log(req.body.name)
-    const file = new Photo({
-      name: req.body.name,
-      photo: {
-        data: fs.readFileSync(filePath),
-        contentType: "image/jpg",
-      },
-    });
-    file
-      .save()
-      .then((res) => {
-        console.log("image is saved");
-      })
-      .catch((err) => {
-        console.log(err, "error");
-      });
-    } catch (err) {
-      console.log(err);
+router.post('/', async (req, res) => {
+    if (!req.body.pic) {
+        req.body.pic = 'http://placekitten.com/400/400'
     }
-    return res.send("image is saved");
-});
+    const photo = await Photo.create(req.body)
+    res.json(photo)
+})
+
+
+router.get('/', async (req, res) => {
+    const places = await Photo.find()
+    res.json(places)
+})
 
 
 router.put("/:id", async (req, res) => {

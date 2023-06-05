@@ -15,4 +15,4 @@ function PhotoLibrary() {
   )
 }
 
-// export default PhotoLibrary;
+export default PhotoLibrary;

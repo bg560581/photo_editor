@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import './photo.css'
+import "./styles/css/style.css"
 import axios from "axios";
 
 function Make() {
-  const [file, setFile] = useState(null);
+  const [pic, setPic] = useState(null);
   const [name, setName] = useState(null);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
   const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+    setPic(event.target.files[0]);
   };
 
   const handleSubmit = (event) => {
@@ -19,7 +19,7 @@ function Make() {
 
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("file", file);
+    formData.append("pic", pic);
 
     axios
       .post("http://localhost:3003/photos/", formData)
@@ -49,11 +49,12 @@ function Make() {
               marginTop:'7px'
             }}
           />
-        <label htmlFor="file-input">Choose a file:</label>
+        <label htmlFor="file-input"/>
         <input
+          placeholder='Add Picture...' 
           className="form-control"
-          type="file"
-          id="file-input"
+          type="pic"
+          id="pic"
           onChange={handleFileChange}
         />
       </div>

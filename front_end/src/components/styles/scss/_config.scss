@@ -1,0 +1,10 @@
+$font-main: Arial, Helvetica, sans-serif;
+$light-color: #f4d260;
+$primary-color: #000814;
+$secondary-color: #a2d0fc;
+
+
+@function centeredItem($width) { 
+    $width: 100%;
+    @return $width/2; 
+}
