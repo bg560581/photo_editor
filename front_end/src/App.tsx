@@ -1,5 +1,5 @@
 import React from "react";
-import Photos from "./components/Photos.js";
+import Photos from "./components/Photos";
 
 function App() {
  

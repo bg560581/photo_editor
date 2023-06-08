@@ -6,19 +6,30 @@ import Photos from "./Photos";
 import Delete from "./Delete";
 import "./styles/css/style.css"
 
+interface Photo {
+  _id:number;
+  name:string;
+  image:any;
+}
 
-function Show({photo}) {
+interface ShowProps {
+  photo: Photo;
+}
+
+function Show({photo}:ShowProps) {
     const [updateName, setUpdateName] = useState(false);
 
   return (
     <div>
         
-        <h1><a href={`./photos/${Photos._id}`} >
+        <h1><a href={`./photos/${photo._id}`} >
           {photo.name}
         </a></h1>
         
         {/* <p> this will be where the editing is</p> */}
-        <img src={photo.image} id="image" style={{
+        <img src={photo.image} 
+        id="image" 
+        style={{
             width: "50%",
             marginLeft: "auto",
             marginRight: "auto",

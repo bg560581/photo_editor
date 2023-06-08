@@ -3,8 +3,14 @@ import axios from 'axios'
 import "./styles/css/style.css"
 
 
-export default function Delete({ id }) {
-  const [photo, setPhoto] = useState(null)
+interface DeleteProps {
+  id:number;
+  setUpdateName: React.Dispatch<React.SetStateAction<boolean>>;
+
+}
+
+const Delete: React.FC<DeleteProps> = ( {id } ) => {
+  const [photo, setPhoto] = useState<string | null>(null)
     
   const deletePhoto = () => {
   
@@ -15,9 +21,9 @@ export default function Delete({ id }) {
     <div>
       <form>
       <button 
-            type='text' 
+            type='button' 
             placeholder='edit'
-            onClick={() => deletePhoto(id)}
+            onClick={() => deletePhoto()}
             style={{
               // width: "25%",
               // height:'15px',
@@ -26,11 +32,11 @@ export default function Delete({ id }) {
               marginTop:'7px',
               display: "block",
               fontSize:'14px'
-            }}
-          >
+            }}>
             Delete
           </button>
       </form>
     </div>
   )
 }
+export default Delete;

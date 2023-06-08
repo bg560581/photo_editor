@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import "./styles/css/style.css"
 
+interface EditProps{
+  id:number;
+  setUpdateName: React.Dispatch<React.SetStateAction<boolean>>;
 
-const Edit = ({ id, setUpdateName }) => {
+}
+const Edit: React.FC<EditProps> = ({ id, setUpdateName }) => {
     const [newPhotoName, setNewPhotoName] = useState('');
-    const updateName = (event) => {
+    const updateName = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
               axios.put(`http://localhost:3003/photos/${id}`, {
         id: id,
         newPhotoName: newPhotoName
       })
-        .then(response => {
+        .then(_response => {
           setUpdateName(prevState => !prevState);
       })
         .catch(error => {
@@ -20,16 +24,13 @@ const Edit = ({ id, setUpdateName }) => {
     };
 
     function refreshPage(){
-        window.location.reload(true)
+        window.location.reload()
     }
 
   
     return (
       <div>
-        <form onSubmit={(event) => {
-            event.preventDefault();
-            updateName();
-        }}>
+        <form onSubmit={updateName}>
           <input 
             type='text'
             className='name-edit' 
@@ -41,18 +42,16 @@ const Edit = ({ id, setUpdateName }) => {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              marginLeft: "auto",
               display: "block",
               marginTop:'7px'
             }}
             
           />
           <button 
-            type='text' 
+            type='submit' 
             placeholder='edit'
-            onClick={(event) => {
+            onClick={() => {
                 console.log('update')
-                updateName(event)
                 refreshPage();
             }
             }
@@ -68,8 +67,6 @@ const Edit = ({ id, setUpdateName }) => {
           >
             change photo name
           </button>
-          <h/>
-
         </form>
       </div>
     );

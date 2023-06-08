@@ -1,12 +1,25 @@
-This App will have the features of adding photos to a database.
+Photo Holder/Editor
 
-in the future you will be able to go in and edit your photos.
+This App will have the features of adding photos to a database.
 
 on this site you will have to ability to upload and save your images to a Database. 
 
-Right now, you may see a blank boring screen but behind the white veil and plain unfinished text lays all the CRUD components of a MERN stack
+Technologies:
 
-The app allows you to:
+Typescript
+Scss
+Express
+Mongoose
+Axios
+Multer
+Cors
+
+Technical Information:
+to run the app:
+    cd into the frontend folder and run npm start
+    in a seperate bash, cd into the backend folder and run nodemon
+
+The app will allow you to:
 Create posts, 
     images with names
 Read the post that you just created
@@ -15,6 +28,9 @@ Edit the name of the posts
 Deleting the posts 
 
 The app is connected to a Mongo database where all the information will be stored. In order to connect to the database, I have used Axios and to render the images I will be using Multer.
+
+Issues:
+I keep running into issues loading the image which I am in the process of fixing
 
 This app is a work in progress and I plan on working on it.
 
