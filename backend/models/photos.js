@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-// const { Schema } = mongoose
+const { Schema } = mongoose
 
 //schema
 const photoSchema = new mongoose.Schema({
@@ -11,8 +11,8 @@ const photoSchema = new mongoose.Schema({
         contentType:String,
     // photoUrl: { type: String, 
         // required: true 
-    }
-    // url: { type: String, required: true }
+    },
+    url: { type: String, required: true }
 });
 
 

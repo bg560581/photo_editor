@@ -3,7 +3,7 @@ const { Router } = require("express");
 const router = Router();
 const Photo = require("../models/photos.js");
 const fs = require("fs");
-// const uploadMiddleware = require("../MulterMiddleware.js");
+const uploadMiddleware = require("../MulterMiddleware.js");
 
 const multer = require("multer");
 const { v4: uudiv4 } = require("uuid");
