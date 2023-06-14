@@ -11,7 +11,7 @@ const Edit: React.FC<EditProps> = ({ id, setUpdateName }) => {
     const [newPhotoName, setNewPhotoName] = useState('');
     const updateName = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-              axios.put(`http://localhost:3003/photos/${id}`, {
+              axios.put(`${process.env.REACT_APP_SERVER_URL}/photos/${id}`, {
         id: id,
         newPhotoName: newPhotoName
       })

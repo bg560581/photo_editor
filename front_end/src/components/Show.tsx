@@ -22,7 +22,7 @@ function Show({photo}:ShowProps) {
   return (
     <div>
         
-        <h1><a href={`./photos/${photo._id}`} >
+        <h1><a href={`${process.env.REACT_APP_SERVER_URL}/photos/${photo._id}`} >
           {photo.name}
         </a></h1>
         

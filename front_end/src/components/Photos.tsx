@@ -13,7 +13,7 @@ export default function Photos() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3003/photos")
+      .get(`${process.env.REACT_APP_SERVER_URL}`)
       .then((response) => {
         console.log(response);
         setPhotos(response.data.photos);

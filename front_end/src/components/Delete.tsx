@@ -14,7 +14,7 @@ const Delete: React.FC<DeleteProps> = ( {id } ) => {
     
   const deletePhoto = () => {
   
-        axios.delete(`http://localhost:3003/photos/${id}`)
+        axios.delete(`${process.env.REACT_APP_SERVER_URL}/photos/${id}`)
         .then(() => setPhoto('delete successful!'));
       }
   return (

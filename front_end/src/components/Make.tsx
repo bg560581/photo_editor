@@ -35,7 +35,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     formData.append("pic", pic);
 
     axios
-      .post("http://localhost:3003/photos/", formData)
+      .post(`${process.env.REACT_APP_SERVER_URL}/photos/`, formData)
       .then((response) => {
         console.log(response.data);
       })
