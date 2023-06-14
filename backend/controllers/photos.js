@@ -25,10 +25,11 @@ const upload = multer({ dest: 'uploads/' });
 const db = require("../models")
 
 router.post('/', async (req, res) => {
+  const { url, contentType, type, name } = req.body;
     if (!req.body.pic) {
         req.body.pic = 'http://placekitten.com/400/400'
     }
-    const photo = await Photo.create(req.body)
+    const photo = await Photo.create({ contentType, type, name });
     res.json(photo)
 })
 
